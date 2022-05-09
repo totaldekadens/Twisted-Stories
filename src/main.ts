@@ -48,7 +48,7 @@ function nextStep(id: number) {
       rightButton.classList.add("none")
       leftButton.classList.add("none")
       input!.value =""
-      const myTimeout = setTimeout(timesUp, 10000);
+      const myTimeout = setTimeout(timesUp, 20000);
 
       input?.addEventListener("keypress", (event) => {
 
@@ -71,6 +71,7 @@ function nextStep(id: number) {
 
           } 
           else {
+            clearTimeout(myTimeout);
             question.innerText = "Ajdå"
             leftButton.classList.remove("none")
             rightButton.classList.add("none")
@@ -126,7 +127,6 @@ function nextStep(id: number) {
 
 function timesUp() {
   question.innerText = "SORRY"!!
-
   leftButton.classList.remove("none")
   rightButton.classList.add("none")
   input?.classList.add("none")

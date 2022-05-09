@@ -31,7 +31,7 @@ export let gameSteps: gameStep[] = [{
   },
   {
     id: 4,
-    question: "Du har from NU 15 sekunder på dig att skriva hela alfabetet, avsluta med Enter, annars händer något väldigt tråkigt..",
+    question: "Du har from NU 20 sekunder på dig att skriva hela alfabetet, avsluta med Enter, annars händer något väldigt tråkigt..",
     input: true,
     choices: {
       left: {text: "Börja om", id: 1},
