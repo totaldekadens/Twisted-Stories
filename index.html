@@ -4,11 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Twisted Stories</title>
+    <title>Vite App</title>
   </head>
   <body>
     <div id="app">
-      <h1>Kollar bara läget</h1>
+
+      <div class="welcome">Kör igång</div>
+
+      <h1 class="question"></h1>
+
+      <div class="inputField none">
+        <input class="firstName" id="firstName" type="text" autofocus>  <button id="continue" class="continue none" type="button">Fortsätt</button>
+      </div>
+      
+
+      <div class="buttons flex">
+        <div type="button" class="right flex"></div>
+        <div type="button" class="left flex"></div>
+      </div>
+
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
