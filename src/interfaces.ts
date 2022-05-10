@@ -9,3 +9,8 @@ export interface gameStep {
   
   }
   
+  export interface gameStepPic extends gameStep {
+
+    image: string,
+
+  }
