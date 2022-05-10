@@ -1,10 +1,20 @@
+body {
+  background-color: black;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+ /*  text-align: center; */
+  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+ /*  justify-content: center; */
+  height: 100vh;
+  background-color: black;
 }
 
 .welcome {
@@ -12,15 +22,25 @@
   text-align: center;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   position: absolute;
   top: 0px;
   right: 0px;
   left: 0px;
   bottom: 0px;
   background-color: black;
-  color: white;
+  color: rgba(255, 255, 255, 0.663);
   cursor: pointer;
   }
+
+.headline {
+  display: flex;
+  margin: 0px 60px 0px 60px;
+}
+
+.headline h1 {
+  font-size: 22px;
+}
 
 
 .flex {
@@ -38,17 +58,46 @@
 .buttons {
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 20px;
   
 }
 
 .right, .left {
+  padding: 20px;
   margin-top: 50px;
+  font-size: 22px;
   align-items: center;
   justify-content: center;
-  width: 300px;
+  width: 40vw;
   height: 150px;
   cursor: pointer;
-  background-color: lightblue;
+  background-image: linear-gradient(to right, black , rgb(21, 21, 21));
+  border-radius: 5px;
+}
 
+.right:hover, .left:hover {
+  background-image: linear-gradient(to right, rgb(35, 35, 35), rgb(16, 16, 16));
+}
+
+.firstName {
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: rgb(40, 40, 40);
+  color: white;
+  border-color: white;
+
+}
+
+.firstName:focus {
+  background-color: black;
+}
+
+.firstName:active {
+  background-color: black;
+}
+
+.firstName:focus-visible {
+  background-color: black;
 }
