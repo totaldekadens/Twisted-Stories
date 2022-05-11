@@ -101,3 +101,16 @@ body {
 .firstName:focus-visible {
   background-color: black;
 }
+
+.imgCont {
+
+  height: 40%;
+  width: 100%;
+
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
