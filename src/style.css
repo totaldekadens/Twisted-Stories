@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
  /*  justify-content: center; */
   height: 100vh;
   background-color: black;
@@ -64,6 +64,7 @@ body {
 }
 
 .right, .left {
+  display: flex;
   padding: 20px;
   margin-top: 50px;
   font-size: 22px;
@@ -87,6 +88,10 @@ body {
   background-color: rgb(40, 40, 40);
   color: white;
   border-color: white;
+  font-size: larger;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 50px 0px 50px 0px;
 
 }
 
@@ -103,8 +108,7 @@ body {
 }
 
 .imgCont {
-
-  height: 40%;
+  height: 35%;
   width: 100%;
 
 }
@@ -113,4 +117,8 @@ body {
   height: 100%;
   width: 100%;
   object-fit: contain;
+}
+
+.none {
+  display: none;
 }
