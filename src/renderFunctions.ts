@@ -1,107 +1,136 @@
 import { GameStep } from "./types";
-import { gameSteps  } from "./gameData";
+import { gameSteps } from "./gameData";
 
 
 // HTML-Element
-let question = document.querySelector(".question") as HTMLDivElement
-let rightButton = document.querySelector(".right") as HTMLDivElement
-let leftButton = document.querySelector(".left") as HTMLInputElement
-let contInputField = document.querySelector(".inputField") as HTMLInputElement
-let input = document.getElementById('firstName') as HTMLInputElement | null;
 export let welcome = document.querySelector(".welcome") as HTMLDivElement
-let imgCont = document.querySelector(".imgCont") as HTMLDivElement
 let image = document.createElement("img") as HTMLImageElement
 image.classList.add("image")
+let question = document.querySelector(".question") as HTMLDivElement
+let contInputField = document.querySelector(".inputField") as HTMLInputElement
+let input = document.getElementById('firstName') as HTMLInputElement | null;
+let imgCont = document.querySelector(".imgCont") as HTMLDivElement
+let buttons = document.querySelector(".buttons") as HTMLDivElement
+let rightButton = document.createElement("div") as HTMLDivElement
+let leftButton = document.createElement("div") as HTMLDivElement
+rightButton.classList.add("right")
+leftButton.classList.add("left")
 
 
 
 
 
 
-export const renderStep : (gameStep: GameStep) => void = (gameStep) => {
+
+// Renderar ut steget
+export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
+
+  // Alphabet challenge
+  if (gameStep.id == 7) {
+    gameOne(gameStep);
+    return
+  } 
 
 
-    if(gameStep.id == 1 ) {
-      input?.classList.remove("none")
-    }
+  // Value from Input
+
   
-    let yourName = input?.value
-  
-    rightButton.classList.remove("none")
+  input?.classList.remove("none") // because of game-function
+
+  let yourName = input?.value
+
+  if (gameStep.id == 6) {
+    question.innerHTML = "Tack " + yourName + "! <br><br>" + gameStep.question
+  } else {
+    question.innerHTML = gameStep.question
+  }
+
+  input!.value ="" // because of game function
+
+  // Buttons
+  rightButton.classList.remove("none")
+
+  if (!gameStep.choices.left) {
+    leftButton.classList.add("none")
+    rightButton.innerText = gameStep.choices.right.text
+  } else {
     leftButton.classList.remove("none")
-  
-    if(gameStep.choices.right.text == "") {
-      rightButton.classList.add("none")
-    }
-    if(gameStep.choices.left.text == "") {
-      leftButton.classList.add("none")
-    }
-  
-    contInputField.classList.add("none") 
-  
-    if(gameStep.input) {
-      contInputField.classList.remove("none")
-    }
-  
-    if(gameStep.id == 6) {
-      question.innerHTML = "Tack " + yourName + "! <br><br>" + gameStep.question
-    } else {
-      question.innerHTML = gameStep.question
-    }
-
-    if(gameStep.image == "" ) {
-      imgCont.classList.add("none")
-    } else {
-      imgCont.classList.remove("none")
-      image.src = "./src/assets/" + gameStep.image
-      imgCont.append(image)
-    }
-    
     rightButton.innerText = gameStep.choices.right.text
     leftButton.innerText = gameStep.choices.left.text
-  
-  
-    for (let i = 0; i < gameSteps.length; i++) {  
-  
-      const step = gameSteps[i];
-  
-      if(step.id == gameStep.id) {
-  
-        rightButton.addEventListener("click", () => { 
-        
-          nextStep(step.choices.right.id)
-        
-        })
-  
-        leftButton.addEventListener("click", () => { 
-  
-          nextStep(step.choices.left.id)
-        
-        })
-  
+  }
+
+  buttons.append(leftButton, rightButton)
+
+
+
+  // Input
+  if (gameStep.optional?.input) {
+    contInputField.classList.remove("none")
+  } else {
+    contInputField.classList.add("none")
+  }
+
+
+  // Image
+  if (!gameStep.optional?.image) {
+    imgCont.classList.add("none")
+  } else {
+    imgCont.classList.remove("none")
+    image.src = "./src/assets/" + gameStep.optional?.image
+    imgCont.append(image)
+  }
+
+
+  // Sound
+  if (gameStep.optional?.sound) {
+    const sound = new Audio("./src/assets/" + gameStep.optional?.sound);
+    sound.play();
+  }
+
+
+
+  // Eventlisteners
+  var newLeftBtn = leftButton.cloneNode(true);
+  leftButton.parentNode!.replaceChild(newLeftBtn, leftButton); 
+  leftButton = newLeftBtn as HTMLDivElement
+
+  if(gameStep.choices.left) {
+    newLeftBtn.addEventListener("click", () => {
+      nextStep(gameStep.choices.left!.id)
+    })
+  }
+
+  var newRightBtn = rightButton.cloneNode(true);
+  rightButton.parentNode!.replaceChild(newRightBtn, rightButton); 
+  rightButton = newRightBtn as HTMLDivElement
+
+  rightButton.addEventListener("click", () => {
+
+    if((gameStep.id == 5)) {
+
+      let yourName = input?.value
+
+      if (!yourName) {
+        alert("Fyll i ditt namn!")
+        return
       }
-  
     }
-  
+    nextStep(gameStep.choices.right.id)
+  })
+
 }
-  
-  
-  
-  
-export const nextStep : (id: number) => void = (id) => {
 
-    for (let i = 0; i < gameSteps.length; i++) { 
 
-        let step = gameSteps[i]
 
-        if(step.id == id) {
 
-            console.log(step)
 
-            renderStep(step)
+// Sending next step to renderStep
+const nextStep: (id: number) => void = (id) => {
 
-        }
-    }
+  let nextStep = gameSteps.find(step => step.id == id)!
+
+  renderStep(nextStep)
+
 }
 
 
@@ -109,49 +138,14 @@ export const nextStep : (id: number) => void = (id) => {
 
 
 
+// Alphabet challenge
+function gameOne(step: GameStep) :void {
+    
+  input!.style.width = "60vw"
+  input!.style.height = "150px"
+  input!.style.fontSize = "30px"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
- Lägger spelet på is lite. Lös det grundläggande först så får spelet bli en bonus om du hinner.
-
-
-
- Alfabetsutmaningen på is - Denna skall in i for-loopen sen
-
- if (id == 7 && step.id == 7) {
-  gameOne(step);
-  return
-} 
-
-
-
-
-  function gameOne(step: object) :void {
-
-  console.log("Nu är du på alfabetsspelet")
+  imgCont.classList.add("none")
 
   question.innerText = step.question
 
@@ -174,38 +168,40 @@ export const nextStep : (id: number) => void = (id) => {
 
       const alfa: string = "abcdefghijklmnopqrstuvxyzåäö"
 
+
+
+      //  Gör nedan dynamisk
+
       if(answer == alfa) {
         clearTimeout(myTimeout);
         question.innerText = "Grattis!"
         rightButton.classList.remove("none")
         input?.classList.add("none")
         rightButton.innerText = step.choices.right.text
+        rightButton.addEventListener("click", () => {nextStep(step.choices.right.id)} )
 
       } 
       else {
         clearTimeout(myTimeout);
-        question.innerText = "Ajdå"
+        question.innerText = "Zombiesarna dödade dig :(  Rest In Piece. "
         leftButton.classList.remove("none")
         rightButton.classList.add("none")
         input?.classList.add("none")
-        leftButton.innerText = step.choices.left.text
+        leftButton.innerText = step.choices.left!.text
+        leftButton.addEventListener("click", () => {nextStep(step.choices.left!.id)} )
       }
-
-      input!.value =""
-
     }
-
   })
 }
 
 
 
- function timesUp() {
-  question.innerText = "SORRY"!!
+function timesUp() {
+  question.innerText = "Zombiesarna hann döda dig :(  Rest In Piece. "
   leftButton.classList.remove("none")
   rightButton.classList.add("none")
   input?.classList.add("none")
   leftButton.innerText = "Börja om"
+  leftButton.addEventListener("click", () => {nextStep(1)} )
 }   
 
- */

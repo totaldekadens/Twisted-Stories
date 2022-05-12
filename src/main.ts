@@ -1,6 +1,6 @@
 import './style.css'
 import { gameSteps  } from "./gameData";
-import { welcome, renderStep, nextStep,   } from "./renderFunctions";
+import { welcome, renderStep,   } from "./renderFunctions";
 
 
 
@@ -14,5 +14,4 @@ import { welcome, renderStep, nextStep,   } from "./renderFunctions";
 
 renderStep
 
-nextStep
 
