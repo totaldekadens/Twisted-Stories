@@ -84,7 +84,10 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 // Sending next step to renderStep
 const nextStep: (id: number, sound: HTMLAudioElement) => void = (id, sound) => {
 
-  sound.pause();
+  if(sound) {
+    sound.pause();
+  }
+  
 
   let nextStep = gameSteps.find(step => step.id == id)!
 
