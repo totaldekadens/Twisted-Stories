@@ -300,6 +300,9 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
+      text: "Byt radiokanal", 
+      id: 19,
+    },{
       text: "Gå vidare", 
       id: 15,
     }
@@ -314,9 +317,14 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
+    {
       text: "Gå vidare", 
       id: 15,
     }
+
   ],
 },
 {
@@ -327,6 +335,10 @@ export let gameSteps: GameStep[] = [
     sound: "rixfm.mp3"
   },
   choices: [
+    {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
     {
       text: "Gå vidare", 
       id: 15,
@@ -341,6 +353,10 @@ export let gameSteps: GameStep[] = [
     sound: "lugn.mp3",
   },
   choices: [
+    {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
     {
       text: "Gå vidare", 
       id: 15
