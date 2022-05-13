@@ -1,20 +1,20 @@
 export interface GameStep {
     id: number,
     question: string,
-    optional?: optional 
-    choices: {
-      left?: buttonData,
-      right: buttonData
-    }
-   
+    optional?: Optional 
+    choices: Choice[]
   }
-  export interface buttonData {
-    text: string, 
-    id: number
-  } 
-  
-  export interface optional {
+
+
+interface Choice {
+  text: string,
+  id: number,
+}
+
+
+interface Optional {
     input?: boolean,
     image?: string,
     sound?: string,
   }
+

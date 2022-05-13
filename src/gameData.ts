@@ -4,56 +4,74 @@ import { GameStep } from "./types";
 export let gameSteps: GameStep[] = [
   {
     id: 1,
-    question: "Du har knappt vaknat och ligger och surplar på dagens första kopp kaffe i sängen. Det är inte förrän efter din andra kopp kaffe som du brukar bli människa igen och dina ögon är fortfarande lite grumliga. Men under din pågående mysiga morgonrutin ser du något ovanligt i den normalt sett vackra fönstervyn från sovrummet. Det är en man precis utanför på gårdsplanen. Han är hukad, står på alla fyra och gnager på ett ben. Ett mänskligt ben. Definitivt. Och den har fortfarande en sko på sig.. ",
+    question: "Du har knappt vaknat och ligger och surplar på dagens första kopp kaffe i sängen. Det är inte förrän efter din andra kopp kaffe som du brukar bli människa igen och dina ögon är fortfarande lite grumliga. Men under din pågående mysiga morgonrutin ser du något ovanligt i den normalt sett vackra fönstervyn från sovrummet. Det är en man precis utanför på gårdsplanen. Han är hukad, står på alla fyra och gnager på ett ben. Ett mänskligt ben. Definitivt. Och det har fortfarande en sko på sig.. ",
     optional: {
       image: "window.jpg",
     },
-    choices: {
-      right: {text: "Gå vidare", id: 2},
-    }
+    choices: [{
+      text: "Gå vidare", 
+      id: 2
+      },
+    ],
   },
   {
   id: 2,
   question: "Du har svårt att ta in den bild du ser framför dig och fryser till is. Mannen som gnager på det mänskliga benet slutar plötsligt tugga, som om något ljud stör honom. Han tittar sakta upp från sin måltid. Hans ögon blinkar inte och de verkar vara för stora för hans ansikte. Munnen hänger öppen och blodet rinner längs hans haka. Han ser dig. Precis i det ögonblicket skymtar du samtidigt i ögonvrån en ”flock” av fler som honom med glassplitter överallt på deras kroppar som påvisar tydligt att de inte haft några problem att komma in i tidigare hus om de velat. Nu är de på väg mot ditt. <br><br> Vad gör du?",
   optional: {
     image: "scary_zombie.webp",
-    /* sound: "intro_music_v2.mp3", */
+    sound: "short.mp3"
   },
-  choices: {
-    left: {text: "Går ut genom sidodörren och försöker smyga förbi dem till din bil, medan de alla är upptagna med ben och fönster", id: 3},
-    right: {text: "Du springer ner i din källare, barrikaderar dörren och hoppas på att de inte förstår att du är där", id: 4},
-  }
+  choices: [
+    {
+      text: "Går ut genom sidodörren och försöker smyga förbi dem till din bil, medan de alla är upptagna med ben och fönster", 
+      id: 3
+    },
+    {
+      text: "Du springer ner i din källare, barrikaderar dörren och hoppas på att de inte förstår att du är där", 
+      id: 4
+    },
+  ],
 },
 {
   id: 3,
   question: "Du har smygt ut som en ninja. De tio steg det tog dig för att nå bilen var de tio mest nervkittlande i hela ditt liv. Men du lyckades vara tillräckligt tyst – härvan av zombies på din gårdsplan ser inte upp förrän dunsen från den stängande förarsidans dörr. <br> De börjar springa mot bilen samtidigt som du får i gång den och ställer dig på gasen. (Du tänker samtidigt, vilken jäkla tur att ja alltid har på mig bilnycklarna och att bilen är nytankad, vad är oddsen?). Du kör över och på en massa zombies och tar dig ifrån platsen. ",
   optional: {
     image: "car_drive.jpg",
-    /* sound: "intro_music_short.mp3", */
   },
-  choices: {
-    right: {text: "Gå vidare", id: 5},
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 5
+    },
+  ],
 },
 {
   id: 4,
   question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i källaren och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  Du tar till dig en spade och förstår vad du har framför dig. <br><br> De tar sig in och du slåss heroiskt. Du tar död på flera stycken, men till slut övermanövrerar de dig och du tar ditt sista andetag. <br><br> Rest In Peace.",
   optional: {
-    sound:"Banging-On-Wooden-Door.mp3",
+    sound:"Zombie-Breathing.mp3",
+    image: "rip.png",
   },
-  choices: {
-    right: {text: "Börja om", id: 1},
-  }
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
 },
 {
   id: 5,
   question: "Vi tar en liten snabb paus innan du får köra vidare. Vi har ju glömt att fråga vad du heter. Oförskämt av oss.. <br><br> Vad heter du? ",
   optional: {
   input: true,
+  image: "question.png",
   },
-  choices: {
-    right: {text: "Gå vidare", id: 6},
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 6
+    },
+  ],
 }
 ,
 {
@@ -62,51 +80,70 @@ export let gameSteps: GameStep[] = [
   optional: {
   image: "zombies_street.png",
   },
-  choices: {
-    right: {text: "Gå vidare", id: 15},
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 19
+    },
+  ],
 },
 {
   id: 7,
-  question: "Du har from NU 20 sekunder på dig att skriva hela alfabetet, avsluta med Enter, annars händer något väldigt tråkigt..",
+  question: "Du har from NU 20 sekunder på dig att skriva hela alfabetet, avsluta med Enter, annars dör ni båda två..",
   optional: {
     input: true,
     sound: "Heartbeat-Getting-Faster.mp3"
   },
-  choices: {
-    left: {text: "Börja om", id: 1},
-    right: {text: "Gå vidare", id: 9},
-  }
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+    {
+      text: "Gå vidare", 
+      id: 9
+    },
+  ],
 } ,
 {
   id: 8,
   question: "Tråkigt men sant. Ingen mening med att ni båda är zombiemat. <br><br> Du trampar ner på gaspedalen och fortsätter. Barnets skräckslagna ansikte blinkar förbi och trädet blir mindre och mindre i backspegeln.. ",
-  choices: {
-    right: {text: "Gå vidare", id: 10},
-  }
+  optional: {
+    image: "sidemirror.webp",
+  },
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 10
+    },
+  ],
 },
 {
   id: 9,
-  question: "Flickan är skärrad och får inte ur sig ett ljud. Du försöker fråga henne om hennes föräldrar utan resultat. <br><br> Ni har kört ett tag, det är vidöppna vyer överallt och inte en zombie så långt ögat kan nå. Du börjar fundera på vad ditt nästa steg är. Vart är ni väg? Du sätter på radion och i samma stund du gör det så berättar en oerhört seriös röst från högtalaren om vilka ställen som är säkra i landet. <br> ”.. Anders Personsgata 18 i Göteborg ..” Är inte det? Jo! Din skola!  Du bestämmer dig för att åka dit.",
+  question: "Flickan är skärrad och får inte ur sig ett ljud. Du försöker fråga henne om hennes föräldrar utan resultat. <br><br> Ni har kört ett tag, det är vidöppna vyer överallt och inte en zombie så långt ögat kan nå. Du börjar fundera på vad ditt nästa steg är. Vart är ni väg? Radion tjuter till i samma stund och ett extrainsatt meddelande till allmänheten läses upp. En seriös röst från högtalaren berättar om vilka ställen som är säkra i landet. <br> ”.. Anders Personsgata 18 i Göteborg ..” Är inte det? Jo! Din skola!  Du bestämmer dig för att åka dit.",
   optional: {
   image: "girl_car.jpg",
- /*  sound: "car_inside.mp3", */
   },
-  choices: {
-    right: {text: "Gå vidare", id: 14 },
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 14
+    },
+  ],
 }
 ,
 {
   id: 10,
-  question: "Du har kört ett tag, det är vidöppna vyer överallt och inte en zombie så långt ögat kan nå. Du börjar fundera på vad ditt nästa steg är. Vart är du på väg? Du sätter på radion och i samma stund du gör det så berättar en oerhört seriös röst från högtalaren om vilka ställen som är säkra i landet. <br> ”.. Anders Personsgata 18 i Göteborg ..” Är inte det? Jo! Din skola!  Du bestämmer dig för att åka dit.",
+  question: "Du har kört ett tag, det är vidöppna vyer överallt och inte en zombie så långt ögat kan nå. Du börjar fundera på vad ditt nästa steg är. Vart är du på väg? Radion tjuter till i samma stund och ett extrainsatt meddelande till allmänheten läses upp. En seriös röst från högtalaren berättar om vilka ställen som är säkra i landet. <br> ”.. Anders Personsgata 18 i Göteborg ..” Är inte det? Jo! Din skola!  Du bestämmer dig för att åka dit.",
   optional: {
     image: "car_road.webp",
-    /* sound: "car_inside.mp3", */
   },
-  choices: {
-    right: {text: "Gå vidare", id: 16},
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 16
+    },
+  ],
 },
 {
   id: 11,
@@ -114,25 +151,41 @@ export let gameSteps: GameStep[] = [
   optional: {
     sound: "gun.mp3", 
   },
-  choices: {
-    left: {text: "Jag går och lägger mig, det är ju fan helt omöjligt att rädda sitt liv - Ändra denna text sen", id: 1},
-    right: {text: "Fortsätter peppra på vinst eller förlust - Ändra denna text sedan", id: 13},
-  }
+  choices: [
+    {
+      text: "Jag går och lägger mig, det är ju fan helt omöjligt att rädda sitt liv", 
+      id: 1
+    },
+    {
+      text: "Fortsätter peppra på vinst eller förlust - Ändra denna text sedan", 
+      id: 13
+    },
+  ],
 },
 {
   id: 12,
-  question: "Du dör på kuppen och hyllas som en hjälte. - Lägg till något mer",
-  choices: {
-    right: {text: "Börja om", id: 1},
-  }
+  question: "Det var inte en av dina bästa idéer tyvärr.. De tar över bilen och dödar dig på kuppen.",
+  optional: {
+    image: "skull.png",
+    sound: "Zombie-Breath.mp3"
+  },
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
 }
 ,
 {
   id: 13,
   question: "Du klarade dig och är på en säker plats! GRATTIS!",
-  choices: {
-    right: {text: "Börja om", id: 1},
-  }
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
 },
 {
   id: 14,
@@ -140,22 +193,34 @@ export let gameSteps: GameStep[] = [
   optional: {
   image: "dark_city.jpg",
   },
-  choices: {
-    left: {text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa att skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus. – Till skjutspel!", id: 11}, /* Skicka till nytt id? */
-    right: {text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", id: 12 }, /* Skicka till nytt id? */
-  }
+  choices: [
+    {
+      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa att skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus. – Till skjutspel!", 
+      id: 11 /* Skicka till nytt id? */
+    },
+    {
+      text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", 
+      id: 12 /* Skicka till nytt id? */
+    },
+  ],
 },
 {
   id: 15,
   question: " Du kommer till utkanten av staden och började precis tänka på att ”Ååh, vad skönt, har inte sett några zombies eller människor på ett tag nu”. Jinx på det! <br><br> Till vänster av vägkanten ser du tre zombies vid roten av ett stort träd. De sträcker sig mot kronorna som om det är något de vill ha där uppe. Och det stämmer. Det sitter en liten flicka på en gren. Hon ser livrädd ut och du förstår att det bara en tidsfråga innan hon faller ner. Hon får ögonkontakt med dig. <br><br> Vad gör du?",
   optional: {
   image: "tree.jpg",
- /*  sound: "intro_music_v2.mp3" */
   },
-  choices: {
-    left: {text: "Du kommer göra allt för att rädda flickan! ", id: 7},
-    right: {text: "Det finns inget du kan göra. Det är en alldeles för stor risk för er båda. Du kör vidare.", id: 8},
-  }
+  choices: [
+    {
+      text: "Du kommer göra allt för att rädda flickan! ", 
+      id: 7
+    },
+    {
+      text: "Det finns inget du kan göra. Det är en alldeles för stor risk för er båda. Du kör vidare.",
+      id: 8
+    },
+  ],
+
 },
 {
   id: 16,
@@ -163,21 +228,124 @@ export let gameSteps: GameStep[] = [
   optional: {
     image: "dark_city.jpg"
   },
-  choices: {
-    left: {text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", id: 11},
-    right: {text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", id: 12},
-  }
+  choices: [
+    {
+      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", 
+      id: 11
+    },
+    {
+      text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", 
+      id: 12
+    },
+  ],
 },
 {
   id: 17,
-  question: "Grattis! Du har räddat flickan! ",
+  question: "Grattis! Du har räddat flickan!",
   optional: {
-    image: "dark_city.jpg"
+     image: "tree.jpg",
   },
-  choices: {
-    left: {text: "Börja om", id: 1},
-    right: {text: "Gå vidare", id: 9},
-  }
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 9
+    },
+  ],
+},
+{
+  id: 18,
+  question: "Zombiesarna dödade dig :(  Rest In Piece.",
+  optional: {
+    image: "rip.png",
+    sound: "Zombie-Breath.mp3",
+  },
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    }
+  ],
+},
+{
+  id: 19,
+  question: "Du sätter på radion för att få lite distraktion. Vilken kanal väljer du? ",
+  optional: {
+    image: "radio.png"
+  },
+  choices: [
+    {
+      text: "P3", 
+      id: 20,
+    },
+    {
+      text: "Rockklassiker", 
+      id: 21,
+    },
+    {
+      text: "Rix FM", 
+      id: 22,
+    },
+    {
+      text: "Lugna favoriter", 
+      id: 23,
+    },
+  ],
+},
+{
+  id: 20,
+  question: "P3,  jaaa, härliga nyheter.. passande =)    ",
+  optional: {
+    image: "",
+    sound: "p3.mp3",
+  },
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 15,
+    }
+  ],
+},
+{
+  id: 21,
+  question: "Rockklassiker när det är som bäst.. ",
+  optional: {
+    image: "",
+    sound: "rock.mp3"
+  },
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 15,
+    }
+  ],
+},
+{
+  id: 22,
+  question: "Rix FM.... Universe.... ",
+  optional: {
+    image: "",
+    sound: "rixfm.mp3"
+  },
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 15,
+    },
+  ],
+},
+{
+  id: 23,
+  question: "Mauro Scocco! ",
+  optional: {
+    image: "",
+    sound: "lugn.mp3",
+  },
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 15
+    }
+  ],
 },
 
 
