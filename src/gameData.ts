@@ -195,12 +195,12 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
-      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa att skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus. – Till skjutspel!", 
-      id: 11 /* Skicka till nytt id? */
+      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa att skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", 
+      id: 24 
     },
     {
       text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", 
-      id: 12 /* Skicka till nytt id? */
+      id: 25 
     },
   ],
 },
@@ -300,6 +300,9 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
+      text: "Byt radiokanal", 
+      id: 19,
+    },{
       text: "Gå vidare", 
       id: 15,
     }
@@ -314,9 +317,14 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
+    {
       text: "Gå vidare", 
       id: 15,
     }
+
   ],
 },
 {
@@ -327,6 +335,10 @@ export let gameSteps: GameStep[] = [
     sound: "rixfm.mp3"
   },
   choices: [
+    {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
     {
       text: "Gå vidare", 
       id: 15,
@@ -342,12 +354,56 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
+      text: "Byt radiokanal", 
+      id: 19,
+    },
+    {
       text: "Gå vidare", 
       id: 15
     }
   ],
 },
-
+{
+  id: 24,
+  question: "Samtidigt som skotten peppras mot zombiesarna, skapar du oönskad uppmärksamhet. Du märker att de börjar flocka sig mot bilen från annat håll <br><br> Vad gör du?",
+  optional: {
+    sound: "gun.mp3", 
+  },
+  choices: [
+    {
+      text: "Jag går och lägger mig, det är ju fan helt omöjligt det här", 
+      id: 1
+    },
+    {
+      text: "Fortsätter peppra på vinst eller förlust", 
+      id: 26
+    },
+  ],
+},
+{
+  id: 25,
+  question: "Det var inte en av dina bästa idéer tyvärr.. De tar över bilen och dödar er på kuppen.",
+  optional: {
+    image: "skull.png",
+    sound: "Zombie-Breath.mp3"
+  },
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
+},
+{
+  id: 26,
+  question: "Ni klarade er och är på en säker plats! GRATTIS! PS. Flickans föräldrar var på medieinstitutet också så det blev en lycklig återförening (Varför de separerade från första början lämnar vi över till nästa kapitel..)",
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
+},
 
 
 ]

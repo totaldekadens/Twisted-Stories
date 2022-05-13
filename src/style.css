@@ -159,7 +159,6 @@ body {
   width: 80%;
   font-size: 14px;
   height: auto;
-  padding: 50pxpx;
 }
 
 .imgCont {
@@ -172,6 +171,28 @@ body {
 
   .headline h1 {
     font-size: 15px;
+}
+
+.imgCont {
+  height: 20%;
+}
+
+.firstName {
+  font-size: 15px;
+}
+
+}
+
+@media screen and (max-width: 300px) {
+
+
+  .headline h1 {
+    font-size: 12px;
+}
+
+.button {
+  font-size: 12px;
+  padding: 25px 20px 25px 20px;
 }
 
 .imgCont {

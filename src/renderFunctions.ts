@@ -63,15 +63,16 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   }
 
 
-  // Sound
+ // Sound
+  const sound = new Audio("./src/assets/sound/" + gameStep.optional?.sound);
+  
   if (gameStep.optional?.sound) {
-    const sound = new Audio("./src/assets/sound/" + gameStep.optional?.sound);
     sound.play();
   }
 
 
   // Buttons
-  eventListener(gameStep);
+  eventListener(gameStep, sound);
 
 }
 
@@ -81,7 +82,12 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 
 
 // Sending next step to renderStep
-const nextStep: (id: number) => void = (id) => {
+const nextStep: (id: number, sound: HTMLAudioElement) => void = (id, sound) => {
+
+  if(sound) {
+    sound.pause();
+  }
+  
 
   let nextStep = gameSteps.find(step => step.id == id)!
 
@@ -187,7 +193,7 @@ function timesUp() {
 
 
 
-function eventListener(gameStep : GameStep) {
+function eventListener(gameStep : GameStep, sound? : HTMLAudioElement) {
 
   for (let i = 0; i < gameStep.choices.length; i++) {
     
@@ -211,9 +217,10 @@ function eventListener(gameStep : GameStep) {
         }
       }
       
-      nextStep(choice.id)
+      nextStep(choice.id, sound!)
     
     })
   }
-
 }
+
+
