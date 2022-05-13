@@ -4,17 +4,11 @@ import { gameSteps } from "./gameData";
 
 // HTML-Element
 export let welcome = document.querySelector(".welcome") as HTMLDivElement
-let image = document.createElement("img") as HTMLImageElement
-image.classList.add("image")
 let question = document.querySelector(".question") as HTMLDivElement
 let contInputField = document.querySelector(".inputField") as HTMLInputElement
 let input = document.getElementById('firstName') as HTMLInputElement | null;
 let imgCont = document.querySelector(".imgCont") as HTMLDivElement
 let buttons = document.querySelector(".buttons") as HTMLDivElement
-let rightButton = document.createElement("div") as HTMLDivElement
-let leftButton = document.createElement("div") as HTMLDivElement
-rightButton.classList.add("right")
-leftButton.classList.add("left")
 
 
 
@@ -22,8 +16,15 @@ leftButton.classList.add("left")
 
 
 
-// Renderar ut steget
+
+// Render current step
 export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
+
+  buttons.innerHTML= "";
+  imgCont.innerHTML="";
+  imgCont.classList.remove("none") // adds none in game-function
+  input?.classList.remove("none") // adds none in game-function
+
 
   // Alphabet challenge
   if (gameStep.id == 7) {
@@ -33,10 +34,6 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 
 
   // Value from Input
-
-  
-  input?.classList.remove("none") // because of game-function
-
   let yourName = input?.value
 
   if (gameStep.id == 6) {
@@ -46,20 +43,6 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   }
 
   input!.value ="" // because of game function
-
-  // Buttons
-  rightButton.classList.remove("none")
-
-  if (!gameStep.choices.left) {
-    leftButton.classList.add("none")
-    rightButton.innerText = gameStep.choices.right.text
-  } else {
-    leftButton.classList.remove("none")
-    rightButton.innerText = gameStep.choices.right.text
-    leftButton.innerText = gameStep.choices.left.text
-  }
-
-  buttons.append(leftButton, rightButton)
 
 
 
@@ -72,53 +55,26 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 
 
   // Image
-  if (!gameStep.optional?.image) {
-    imgCont.classList.add("none")
-  } else {
-    imgCont.classList.remove("none")
-    image.src = "./src/assets/" + gameStep.optional?.image
+  if (gameStep.optional?.image) {
+    let image = document.createElement("img") as HTMLImageElement
+    image.classList.add("image")
+    image.src = "./src/assets/images/" + gameStep.optional?.image
     imgCont.append(image)
   }
 
 
   // Sound
   if (gameStep.optional?.sound) {
-    const sound = new Audio("./src/assets/" + gameStep.optional?.sound);
+    const sound = new Audio("./src/assets/sound/" + gameStep.optional?.sound);
     sound.play();
   }
 
 
-
-  // Eventlisteners
-  var newLeftBtn = leftButton.cloneNode(true);
-  leftButton.parentNode!.replaceChild(newLeftBtn, leftButton); 
-  leftButton = newLeftBtn as HTMLDivElement
-
-  if(gameStep.choices.left) {
-    newLeftBtn.addEventListener("click", () => {
-      nextStep(gameStep.choices.left!.id)
-    })
-  }
-
-  var newRightBtn = rightButton.cloneNode(true);
-  rightButton.parentNode!.replaceChild(newRightBtn, rightButton); 
-  rightButton = newRightBtn as HTMLDivElement
-
-  rightButton.addEventListener("click", () => {
-
-    if((gameStep.id == 5)) {
-
-      let yourName = input?.value
-
-      if (!yourName) {
-        alert("Fyll i ditt namn!")
-        return
-      }
-    }
-    nextStep(gameStep.choices.right.id)
-  })
+  // Buttons
+  eventListener(gameStep);
 
 }
+
 
 
 
@@ -151,8 +107,7 @@ function gameOne(step: GameStep) :void {
 
   let button = document.getElementById('continue') as HTMLInputElement 
   contInputField.classList.remove("none")
-  rightButton.classList.add("none")
-  leftButton.classList.add("none")
+
   input!.value =""
   const myTimeout = setTimeout(timesUp, 20000);
 
@@ -168,27 +123,40 @@ function gameOne(step: GameStep) :void {
 
       const alfa: string = "abcdefghijklmnopqrstuvxyzåäö"
 
-
-
-      //  Gör nedan dynamisk
-
       if(answer == alfa) {
         clearTimeout(myTimeout);
-        question.innerText = "Grattis!"
-        rightButton.classList.remove("none")
-        input?.classList.add("none")
-        rightButton.innerText = step.choices.right.text
-        rightButton.addEventListener("click", () => {nextStep(step.choices.right.id)} )
 
+        contInputField.classList.add("none")
+
+        for (let i = 0; i < gameSteps.length; i++) {
+          const step = gameSteps[i];
+          
+          if(step.id == 17) {
+
+            question.innerHTML = step.question
+
+            eventListener(step);
+
+          }
+        }
       } 
       else {
         clearTimeout(myTimeout);
-        question.innerText = "Zombiesarna dödade dig :(  Rest In Piece. "
-        leftButton.classList.remove("none")
-        rightButton.classList.add("none")
-        input?.classList.add("none")
-        leftButton.innerText = step.choices.left!.text
-        leftButton.addEventListener("click", () => {nextStep(step.choices.left!.id)} )
+
+        contInputField.classList.add("none")
+
+        for (let i = 0; i < gameSteps.length; i++) {
+          const step = gameSteps[i];
+          
+          if(step.id == 18) {
+
+            question.innerHTML = step.question
+
+            eventListener(step);
+
+          }
+
+        }
       }
     }
   })
@@ -197,11 +165,55 @@ function gameOne(step: GameStep) :void {
 
 
 function timesUp() {
-  question.innerText = "Zombiesarna hann döda dig :(  Rest In Piece. "
-  leftButton.classList.remove("none")
-  rightButton.classList.add("none")
-  input?.classList.add("none")
-  leftButton.innerText = "Börja om"
-  leftButton.addEventListener("click", () => {nextStep(1)} )
+
+  contInputField.classList.add("none")
+
+  for (let i = 0; i < gameSteps.length; i++) {
+    const step = gameSteps[i];
+    
+    if(step.id == 18) {
+
+      question.innerHTML = step.question
+
+      eventListener(step);
+
+    }
+
+  }
 }   
 
+
+
+
+
+
+function eventListener(gameStep : GameStep) {
+
+  for (let i = 0; i < gameStep.choices.length; i++) {
+    
+    const choice = gameStep.choices[i];
+
+    let newBtn = document.createElement("div") as HTMLDivElement
+    newBtn.classList.add("button")
+    newBtn.innerText = choice.text
+    
+    buttons.append(newBtn)
+
+    newBtn.addEventListener("click", () => {
+      
+      if((gameStep.id == 5)) {
+
+        let yourName = input?.value
+
+        if (!yourName) {
+          alert("Fyll i ditt namn!")
+          return
+        }
+      }
+      
+      nextStep(choice.id)
+    
+    })
+  }
+
+}
