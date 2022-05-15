@@ -1,5 +1,14 @@
 body {
-  background-color: black;
+ /*  background-color: black; */
+}
+
+#background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -2;
 }
 
 #app {
@@ -12,7 +21,7 @@ body {
   align-items: center;
   margin-top: 50px;
   height: 100vh;
-  background-color: black;
+  /* background-color: black; */
 }
 
 .welcome {
@@ -75,10 +84,16 @@ body {
   cursor: pointer;
   background-image: linear-gradient(to right, rgba(60, 60, 60, 0.731) , rgb(2, 1, 1), rgba(19, 19, 19, 0.839));
   border-radius: 5px;
+  box-shadow: 10px 10px 10px black;
 }
 
 .button:hover {
   background-image: linear-gradient(to right, rgba(144, 144, 144, 0.839) ,rgb(35, 35, 35), rgb(26, 26, 26));
+}
+
+.button:active {
+  box-shadow: 5px 5px 5px black;
+  background-image: linear-gradient(to right, black, black, black);
 }
 
 
@@ -87,8 +102,8 @@ body {
 }
 
 .firstName {
-  width: 200px;
-  height: 40px;
+  width: 400px;
+  height: 55px;
   border-radius: 5px;
   background-color: rgb(40, 40, 40);
   color: white;
@@ -123,6 +138,30 @@ body {
   width: 100%;
   object-fit: contain;
 }
+
+.zombie1, .zombie2, .zombie3 {
+  width: 50px;
+  
+}
+
+.zombie1 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.zombie2 {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+}
+
+.zombie3 {
+  position: absolute;
+  top: 300px;
+  left: 350px;
+}
+
 
 .none {
   display: none;
@@ -163,6 +202,10 @@ body {
 
 .imgCont {
   height: 25%;
+}
+
+.firstName {
+  width: 85vw;
 }
 
 }
