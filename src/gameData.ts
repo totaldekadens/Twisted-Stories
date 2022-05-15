@@ -1,4 +1,4 @@
-import { GameStep } from "./types";
+import { GameStep, Zombie } from "./types";
 
 
 export let gameSteps: GameStep[] = [
@@ -16,14 +16,14 @@ export let gameSteps: GameStep[] = [
   },
   {
   id: 2,
-  question: "Du har svårt att ta in den bild du ser framför dig och fryser till is. Mannen som gnager på det mänskliga benet slutar plötsligt tugga, som om något ljud stör honom. Han tittar sakta upp från sin måltid. Hans ögon blinkar inte och de verkar vara för stora för hans ansikte. Munnen hänger öppen och blodet rinner längs hans haka. Han ser dig. Precis i det ögonblicket skymtar du samtidigt i ögonvrån en ”flock” av fler som honom med glassplitter överallt på deras kroppar som påvisar tydligt att de inte haft några problem att komma in i tidigare hus om de velat. Nu är de på väg mot ditt. <br><br> Vad gör du?",
+  question: "Du har svårt att ta in den bild du ser framför dig och fryser till is. Mannen som gnager på det mänskliga benet slutar plötsligt tugga, som om något ljud stör honom. Han tittar sakta upp från sin måltid. Hans ögon blinkar inte och de verkar vara för stora för hans ansikte. Munnen hänger öppen och blodet rinner längs hans haka. Han ser dig. Precis i det ögonblicket skymtar du samtidigt en ”flock” av fler som honom med glassplitter överallt på deras kroppar som påvisar tydligt att de inte haft några problem att komma in i tidigare hus om de velat. Nu är de på väg mot ditt. <br><br> Vad gör du?",
   optional: {
     image: "scary_zombie.webp",
     sound: "short.mp3"
   },
   choices: [
     {
-      text: "Går ut genom sidodörren och försöker smyga förbi dem till din bil, medan de alla är upptagna med ben och fönster", 
+      text: "Går ut genom sidodörren och försöker smyga förbi dem till din bil, medan de alla är upptagna med ben och huvuddörren", 
       id: 3
     },
     {
@@ -34,7 +34,7 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 3,
-  question: "Du har smygt ut som en ninja. De tio steg det tog dig för att nå bilen var de tio mest nervkittlande i hela ditt liv. Men du lyckades vara tillräckligt tyst – härvan av zombies på din gårdsplan ser inte upp förrän dunsen från den stängande förarsidans dörr. <br> De börjar springa mot bilen samtidigt som du får i gång den och ställer dig på gasen. (Du tänker samtidigt, vilken jäkla tur att ja alltid har på mig bilnycklarna och att bilen är nytankad, vad är oddsen?). Du kör över och på en massa zombies och tar dig ifrån platsen. ",
+  question: "Du har smygt ut som en ninja. De tio steg det tog dig för att nå bilen var de tio mest nervkittlande i hela ditt liv. Men du lyckades vara tillräckligt tyst – härvan av zombies på din gårdsplan ser inte upp förrän dunsen från den stängande förarsidans dörr. <br> De börjar springa mot bilen samtidigt som du får i gång den och ställer dig på gasen. (Du tänker också samtidigt, vilken jäkla tur att ja alltid har på mig bilnycklarna och att bilen är nytankad, vad är oddsen?). Du kör över och på en massa zombies och tar dig ifrån platsen. ",
   optional: {
     image: "car_drive.jpg",
   },
@@ -47,15 +47,18 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 4,
-  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i källaren och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  Du tar till dig en spade och förstår vad du har framför dig. <br><br> De tar sig in och du slåss heroiskt. Du tar död på flera stycken, men till slut övermanövrerar de dig och du tar ditt sista andetag. <br><br> Rest In Peace.",
+  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i källaren och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  . <br><br> Vad gör du?",
   optional: {
-    sound:"Zombie-Breathing.mp3",
-    image: "rip.png",
+    sound:"Banging-On-Wooden-Door.mp3",
   },
   choices: [
     {
-      text: "Börja om", 
-      id: 1
+      text: "Du tar till dig en spade och gör dig redo", 
+      id: 27
+    },
+    {
+      text: "Du försöker fly genom källardörren", 
+      id: 28
     },
   ],
 },
@@ -293,10 +296,10 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 20,
-  question: "P3,  jaaa, härliga nyheter.. passande =)    ",
+  question: "För i...",
   optional: {
-    image: "",
-    sound: "p3.mp3",
+    image: "judge.jpg",
+    sound: "hells.mp3",
   },
   choices: [
     {
@@ -310,10 +313,10 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 21,
-  question: "Rockklassiker när det är som bäst.. ",
+  question: "...! ",
   optional: {
-    image: "",
-    sound: "rock.mp3"
+    image: "zombie.webp",
+    sound: "zombie.mp3"
   },
   choices: [
     {
@@ -329,10 +332,10 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 22,
-  question: "Rix FM.... Universe.... ",
+  question: "... ",
   optional: {
-    image: "",
-    sound: "rixfm.mp3"
+    image: "bomb.jpg",
+    sound: "under.mp3"
   },
   choices: [
     {
@@ -347,10 +350,10 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 23,
-  question: "Mauro Scocco! ",
+  question: ":) ",
   optional: {
-    image: "",
-    sound: "lugn.mp3",
+    image: "happy.png",
+    sound: "happy.mp3",
   },
   choices: [
     {
@@ -404,7 +407,89 @@ export let gameSteps: GameStep[] = [
     },
   ],
 },
-
+{
+  id: 27,
+  question: "Klicka på zombiesarna direkt när de dyker upp i rutan, om du missar en är det kört.. ",
+  choices: [
+    {
+      text: "Åhnej", 
+      id: 29
+    },
+    {
+      text: "Gå vidare", 
+      id: 6
+    },
+  ],
+},
+{
+  id: 28, 
+  question: "Källardörren är låst och du fumlar med låset! De hinner ta sig in och du brottas med dem till ditt sista andetag. Rest in peace. ",
+  optional: {
+    image: "skull.png",
+    sound: "Zombie-Breath.mp3"
+  },
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    }
+  ],
+},
+{
+  id: 29,
+  question: "Åhnej! - Du slåss heroiskt och tar död på flera stycken, men till slut övermanövrerar de dig och du tar ditt sista andetag. <br><br> Rest In Peace.",
+  optional: {
+    image: "skull.png",
+    sound: "Zombie-Breath.mp3"
+  },
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
+},
+{
+  id: 30,
+  question: "WOW vilken insats! Alla zombies är döda! <br><br> Du springer ut till bilen fort som satan och åker därifrån ",
+  choices: [
+    {
+      text: "Gå vidare", 
+      id: 5
+    },
+  ],
+},
 
 ]
 
+
+
+
+
+
+export let zombieList: Zombie[] = [
+  {
+    id: 1,
+    image: "skull.png",
+    cssId: "zombie1",
+    class: "zombie1",
+    sound: "shovel.wav",
+    next: 2
+  },
+  {
+    id: 2,
+    image: "skull.png",
+    cssId: "zombie2",
+    class: "zombie2",
+    sound: "shovel.wav",
+    next: 3
+  },
+  {
+    id: 3,
+    image: "skull.png",
+    cssId: "zombie3",
+    class: "zombie3",
+    sound: "shovel.wav",
+    next: 0
+  },
+]

@@ -18,3 +18,11 @@ interface Optional {
     sound?: string,
   }
 
+  export interface Zombie {
+    id: number,
+    image: string,
+    cssId: string,
+    class: string,
+    sound: string,
+    next: number
+  }
