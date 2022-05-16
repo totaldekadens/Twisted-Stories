@@ -21,8 +21,8 @@ interface Optional {
   export interface Zombie {
     id: number,
     image: string,
-    cssId: string,
     class: string,
     sound: string,
+    sound2?: string,
     next: number
   }

@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 20px;
   height: 100vh;
   /* background-color: black; */
 }
@@ -46,7 +46,7 @@ body {
 }
 
 .headline h1 {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 
@@ -76,11 +76,11 @@ body {
 .button {
   display: flex;
   padding: 50px 20px 50px 20px;
-  font-size: 22px;
+  font-size: 20px;
   align-items: center;
   justify-content: center;
   width: 40vw;
-  height: 90px;
+  height: 60px;
   cursor: pointer;
   background-image: linear-gradient(to right, rgba(60, 60, 60, 0.731) , rgb(2, 1, 1), rgba(19, 19, 19, 0.839));
   border-radius: 5px;
@@ -98,7 +98,7 @@ body {
 
 
 .inputField {
-  margin: 50px 0px 50px 0px;
+  margin: 10px 0px 50px 0px;
 }
 
 .firstName {
@@ -111,7 +111,7 @@ body {
   font-size: larger;
   font-weight: 600;
   text-align: center;
-  margin-top: 50px 0px 50px 0px;
+  margin-top: 50px 0px 0px 0px;
 
 }
 
@@ -128,7 +128,7 @@ body {
 }
 
 .imgCont {
-  margin-top: 50px;
+  margin-top: 10px;
   height: 35%;
   width: 90%;
 }
@@ -139,8 +139,8 @@ body {
   object-fit: contain;
 }
 
-.zombie1, .zombie2, .zombie3 {
-  width: 50px;
+.zombie1, .zombie2, .zombie3, .zombie5, .zombie6, .zombie7,.zombie8, .zombie9, .zombie10, .zombie12, .zombie13, .zombie14,.zombie15, .zombie18, .zombie17  {
+  width: 90px;
   
 }
 
@@ -159,8 +159,102 @@ body {
 .zombie3 {
   position: absolute;
   top: 300px;
-  left: 350px;
+  left: 320px;
 }
+
+.zombie4 {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 800px;
+}
+
+.zombie5 {
+  position: absolute;
+  top: 150px;
+  left: 50px;
+}
+
+.zombie6 {
+  position: absolute;
+  top: 150px;
+  right: 5px;
+}
+
+.zombie7 {
+  position: absolute;
+  top: 300px;
+  left: 320px;
+}
+
+.zombie8 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.zombie9 {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+}
+
+.zombie10 {
+  position: absolute;
+  top: 300px;
+  left: 320px;
+}
+
+.zombie11 {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 800px;
+}
+
+.zombie12 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.zombie13 {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+}
+
+.zombie14 {
+  position: absolute;
+  top: 300px;
+  left: 320px;
+}
+
+.zombie15 {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.zombie16 {
+  position: absolute;
+  top: 150px;
+  right: 50px;
+  width: 800px;
+}
+
+.zombie17 {
+  position: absolute;
+  top: 300px;
+  left: 320px;
+}
+
+.zombie18 {
+  position: absolute;
+  bottom: 30px;
+  right: 155px;
+}
+
 
 
 .none {
@@ -176,6 +270,10 @@ body {
 @media screen and (max-width: 800px) {
   .button {
     font-size: 16px;
+  }
+
+  .zombie4 {
+    width: 600px;
   }
 }
 
@@ -208,6 +306,10 @@ body {
   width: 85vw;
 }
 
+.zombie4 {
+  width: 500px;
+}
+
 }
 
 @media screen and (max-width: 380px) {
@@ -222,6 +324,10 @@ body {
 
 .firstName {
   font-size: 15px;
+}
+
+.zombie4 {
+  width: 300px;
 }
 
 }
