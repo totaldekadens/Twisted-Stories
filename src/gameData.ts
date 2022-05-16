@@ -4,7 +4,7 @@ import { GameStep, Zombie } from "./types";
 export let gameSteps: GameStep[] = [
   {
     id: 1,
-    question: "Du har knappt vaknat och ligger och surplar på dagens första kopp kaffe i sängen. Det är inte förrän efter din andra kopp kaffe som du brukar bli människa igen och dina ögon är fortfarande lite grumliga. Men under din pågående mysiga morgonrutin ser du något ovanligt i den normalt sett vackra fönstervyn från sovrummet. Det är en man precis utanför på gårdsplanen. Han är hukad, står på alla fyra och gnager på ett ben. Ett mänskligt ben. Definitivt. Och det har fortfarande en sko på sig.. ",
+    question: "Du har knappt vaknat och ligger och surplar på dagens första kopp kaffe i sängen. Det är inte förrän efter din andra kopp kaffe som du brukar bli människa igen och dina ögon är fortfarande lite grumliga. Men under din pågående mysiga morgonrutin ser du något ovanligt i den normalt sett vackra fönstervyn från sovrummet. Det är en man precis utanför på gårdsplanen. Han är hukad, står på alla fyra och gnager på ett ben. Ett mänskligt ben. Och det har fortfarande en sko på sig.. ",
     optional: {
       image: "window.jpg",
     },
@@ -47,8 +47,9 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 4,
-  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i källaren och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  . <br><br> Vad gör du?",
+  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i där och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  . <br><br> Vad gör du?",
   optional: {
+    image: "door.jpeg",
     sound:"Banging-On-Wooden-Door.mp3",
   },
   choices: [
@@ -148,7 +149,7 @@ export let gameSteps: GameStep[] = [
     },
   ],
 },
-{
+/* {
   id: 11,
   question: "Samtidigt som skotten peppras mot zombiesarna, skapar du oönskad uppmärksamhet. Du märker att de börjar flocka sig mot bilen från annat håll <br><br> Vad gör du?",
   optional: {
@@ -164,7 +165,7 @@ export let gameSteps: GameStep[] = [
       id: 13
     },
   ],
-},
+}, */
 {
   id: 12,
   question: "Det var inte en av dina bästa idéer tyvärr.. De tar över bilen och dödar dig på kuppen.",
@@ -183,6 +184,10 @@ export let gameSteps: GameStep[] = [
 {
   id: 13,
   question: "Du klarade dig och är på en säker plats! GRATTIS!",
+  optional: {
+    image: "minions.gif",
+    sound: "happyminions.mp3",
+  },
   choices: [
     {
       text: "Börja om", 
@@ -234,7 +239,7 @@ export let gameSteps: GameStep[] = [
   choices: [
     {
       text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", 
-      id: 11
+      id: 31
     },
     {
       text: "Du chansar på att gasa in med bilen i hären och hoppas på att du kan köra ihjäl alla innan du själv fastnar.", 
@@ -246,7 +251,8 @@ export let gameSteps: GameStep[] = [
   id: 17,
   question: "Grattis! Du har räddat flickan!",
   optional: {
-     image: "tree.jpg",
+     image: "tumme.png",
+     sound: "yay.mp3",
   },
   choices: [
     {
@@ -257,9 +263,9 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 18,
-  question: "Zombiesarna dödade dig :(  Rest In Piece.",
+  question: "Du var så nära! Men... Zombiesarna dödade dig :(  Rest In Piece.",
   optional: {
-    image: "rip.png",
+    image: "skull.png",
     sound: "Zombie-Breath.mp3",
   },
   choices: [
@@ -368,18 +374,15 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 24,
-  question: "Samtidigt som skotten peppras mot zombiesarna, skapar du oönskad uppmärksamhet. Du märker att de börjar flocka sig mot bilen från annat håll <br><br> Vad gör du?",
-  optional: {
-    sound: "gun.mp3", 
-  },
+  question: "You know what to do!",
   choices: [
     {
-      text: "Jag går och lägger mig, det är ju fan helt omöjligt det här", 
+      text: "", 
       id: 1
     },
     {
-      text: "Fortsätter peppra på vinst eller förlust", 
-      id: 26
+      text: "", 
+      id: 1
     },
   ],
 },
@@ -400,6 +403,10 @@ export let gameSteps: GameStep[] = [
 {
   id: 26,
   question: "Ni klarade er och är på en säker plats! GRATTIS! PS. Flickans föräldrar var på medieinstitutet också så det blev en lycklig återförening (Varför de separerade från första början lämnar vi över till nästa kapitel..)",
+  optional: {
+    image: "minions.gif",
+    sound: "happyminions.mp3",
+  },
   choices: [
     {
       text: "Börja om", 
@@ -452,6 +459,10 @@ export let gameSteps: GameStep[] = [
 {
   id: 30,
   question: "WOW vilken insats! Alla zombies är döda! <br><br> Du springer ut till bilen fort som satan och åker därifrån ",
+  optional: {
+    image: "tumme.png",
+    sound: "yay.mp3",
+  },
   choices: [
     {
       text: "Gå vidare", 
@@ -459,6 +470,27 @@ export let gameSteps: GameStep[] = [
     },
   ],
 },
+{
+  id: 31,
+  question: "You know what to do!",
+  choices: [
+    {
+      text: "", 
+      id: 1
+    }
+  ],
+},
+{
+  id: 32,
+  question: "Ååhnej! Skotten hinner ta slut och Zombiesarna belägrar bilen.. You know the rest :( ",
+  choices: [
+    {
+      text: "Börja om", 
+      id: 1
+    },
+  ],
+},
+
 
 ]
 
@@ -470,26 +502,123 @@ export let gameSteps: GameStep[] = [
 export let zombieList: Zombie[] = [
   {
     id: 1,
-    image: "skull.png",
-    cssId: "zombie1",
+    image: "zombie_shot.png",
     class: "zombie1",
     sound: "shovel.wav",
     next: 2
   },
   {
     id: 2,
-    image: "skull.png",
-    cssId: "zombie2",
+    image: "zombie_shot.png",
     class: "zombie2",
     sound: "shovel.wav",
     next: 3
   },
   {
     id: 3,
-    image: "skull.png",
-    cssId: "zombie3",
+    image: "zombie_shot.png",
     class: "zombie3",
     sound: "shovel.wav",
+    next: 4
+  },
+  {
+    id: 4,
+    image: "zombie_shot.png",
+    class: "zombie4",
+    sound: "shovel.wav",
+    sound2: "Zombie-Breath.mp3",
+    next: 0
+  },
+  {
+    id: 5,
+    image: "zombie_shot.png",
+    class: "zombie5",
+    sound: "shot.mp3",
+    next: 6
+  },
+  {
+    id: 6,
+    image: "zombie_shot.png",
+    class: "zombie6",
+    sound: "shot.mp3",
+    next: 7
+  }, {
+    id: 7,
+    image: "zombie_shot.png",
+    class: "zombie7",
+    sound: "shot.mp3",
+    next: 8
+  }, {
+    id: 8,
+    image: "zombie_shot.png",
+    class: "zombie8",
+    sound: "shot.mp3",
+    next: 9
+  }, {
+    id: 9,
+    image: "zombie_shot.png",
+    class: "zombie9",
+    sound: "shot.mp3",
+    next: 10
+  }, {
+    id: 10,
+    image: "zombie_shot.png",
+    class: "zombie10",
+    sound: "shot.mp3",
+    next: 11
+  },
+  {
+    id: 11,
+    image: "zombie_shot.png",
+    class: "zombie11",
+    sound: "shot.mp3",
+    sound2: "Zombie-Breath.mp3",
+    next: 0
+  },
+  {
+    id: 12,
+    image: "zombie_shot.png",
+    class: "zombie12",
+    sound: "shot.mp3",
+    next: 13
+  },
+  {
+    id: 13,
+    image: "zombie_shot.png",
+    class: "zombie13",
+    sound: "shot.mp3",
+    next: 14
+  }, {
+    id: 14,
+    image: "zombie_shot.png",
+    class: "zombie14",
+    sound: "shot.mp3",
+    next: 15
+  }, {
+    id: 15,
+    image: "zombie_shot.png",
+    class: "zombie15",
+    sound: "shot.mp3",
+    next: 16
+  }, {
+    id: 16,
+    image: "zombie_shot.png",
+    class: "zombie16",
+    sound: "shot.mp3",
+    sound2: "Zombie-Breath.mp3",
+    next: 17
+  }, {
+    id: 17,
+    image: "zombie_shot.png",
+    class: "zombie17",
+    sound: "shot.mp3",
+    next: 18
+  },
+  {
+    id: 18,
+    image: "zombie_shot.png",
+    class: "zombie18",
+    sound: "shot.mp3",
     next: 0
   },
 ]
