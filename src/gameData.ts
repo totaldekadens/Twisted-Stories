@@ -100,12 +100,12 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
-      text: "Börja om", 
-      id: 1
+      text: "", 
+      id: 17
     },
     {
-      text: "Gå vidare", 
-      id: 9
+      text: "", 
+      id: 18
     },
   ],
 } ,
@@ -149,23 +149,6 @@ export let gameSteps: GameStep[] = [
     },
   ],
 },
-/* {
-  id: 11,
-  question: "Samtidigt som skotten peppras mot zombiesarna, skapar du oönskad uppmärksamhet. Du märker att de börjar flocka sig mot bilen från annat håll <br><br> Vad gör du?",
-  optional: {
-    sound: "gun.mp3", 
-  },
-  choices: [
-    {
-      text: "Jag går och lägger mig, det är ju fan helt omöjligt att rädda sitt liv", 
-      id: 1
-    },
-    {
-      text: "Fortsätter peppra på vinst eller förlust - Ändra denna text sedan", 
-      id: 13
-    },
-  ],
-}, */
 {
   id: 12,
   question: "Det var inte en av dina bästa idéer tyvärr.. De tar över bilen och dödar dig på kuppen.",
@@ -203,7 +186,7 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
-      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa att skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", 
+      text: "Du ser mirakulöst ett laddat gevär vid vägkanten. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus. ", 
       id: 24 
     },
     {
@@ -238,7 +221,7 @@ export let gameSteps: GameStep[] = [
   },
   choices: [
     {
-      text: "Du ser mirakulöst en AK47 vid vägkanten och ser att den är laddad med massor av skott. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus.", 
+      text: "Du ser mirakulöst ett laddat gevär vid vägkanten. Du väljer att chansa skjuta zombiesarna med risk att du träffar och förstör entrén som riskerar livet på samtliga inomhus. ", 
       id: 31
     },
     {
@@ -322,7 +305,7 @@ export let gameSteps: GameStep[] = [
   question: "...! ",
   optional: {
     image: "zombie.webp",
-    sound: "zombie.mp3"
+    sound: "zombieinspelning.mp3"
   },
   choices: [
     {
@@ -461,7 +444,6 @@ export let gameSteps: GameStep[] = [
   question: "WOW vilken insats! Alla zombies är döda! <br><br> Du springer ut till bilen fort som satan och åker därifrån ",
   optional: {
     image: "tumme.png",
-    sound: "yay.mp3",
   },
   choices: [
     {
@@ -483,6 +465,10 @@ export let gameSteps: GameStep[] = [
 {
   id: 32,
   question: "Ååhnej! Skotten hinner ta slut och Zombiesarna belägrar bilen.. You know the rest :( ",
+  optional: {
+    image: "skull.png",
+    sound: "Zombie-Breath.mp3"
+  },
   choices: [
     {
       text: "Börja om", 
@@ -516,7 +502,7 @@ export let zombieList: Zombie[] = [
   },
   {
     id: 3,
-    image: "zombie_shot.png",
+    image: "zombie_w.png",
     class: "zombie3",
     sound: "shovel.wav",
     next: 4
@@ -544,13 +530,13 @@ export let zombieList: Zombie[] = [
     next: 7
   }, {
     id: 7,
-    image: "zombie_shot.png",
+    image: "zombie_w.png",
     class: "zombie7",
     sound: "shot.mp3",
     next: 8
   }, {
     id: 8,
-    image: "zombie_shot.png",
+    image: "zombie_w.png",
     class: "zombie8",
     sound: "shot.mp3",
     next: 9
@@ -596,7 +582,7 @@ export let zombieList: Zombie[] = [
     next: 15
   }, {
     id: 15,
-    image: "zombie_shot.png",
+    image: "zombie_w.png",
     class: "zombie15",
     sound: "shot.mp3",
     next: 16

@@ -1,6 +1,4 @@
-body {
- /*  background-color: black; */
-}
+
 
 #background {
   position: fixed;
@@ -21,7 +19,7 @@ body {
   align-items: center;
   margin-top: 20px;
   height: 100vh;
-  /* background-color: black; */
+  
 }
 
 .welcome {
@@ -101,7 +99,7 @@ body {
   margin: 10px 0px 50px 0px;
 }
 
-.firstName {
+.input {
   width: 400px;
   height: 55px;
   border-radius: 5px;
@@ -115,17 +113,6 @@ body {
 
 }
 
-.firstName:focus {
-  background-color: black;
-}
-
-.firstName:active {
-  background-color: black;
-}
-
-.firstName:focus-visible {
-  background-color: black;
-}
 
 .imgCont {
   margin-top: 10px;
@@ -141,7 +128,6 @@ body {
 
 .zombie1, .zombie2, .zombie3, .zombie5, .zombie6, .zombie7,.zombie8, .zombie9, .zombie10, .zombie12, .zombie13, .zombie14,.zombie15, .zombie18, .zombie17  {
   width: 90px;
-  
 }
 
 .zombie1 {
@@ -255,6 +241,14 @@ body {
   right: 155px;
 }
 
+
+.sniper {
+  cursor: url(./assets/images/sniperwhite.cur), auto;
+}
+
+.shovel{
+  cursor: url(./assets/images/cursorshovel.cur), auto;
+}
 
 
 .none {
