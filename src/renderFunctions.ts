@@ -5,13 +5,16 @@ import { gameSteps, zombieList } from "./gameData";
 // HTML-Element
 export let welcome = document.querySelector(".welcome") as HTMLDivElement
 let question = document.querySelector(".question") as HTMLDivElement
-let contInputField = document.querySelector(".inputField") as HTMLInputElement
-let input = document.getElementById('firstName') as HTMLInputElement | null;
+let contInputField = document.querySelector(".inputField") as HTMLDivElement
+let input = document.getElementById('input') as HTMLInputElement | null;
 let imgCont = document.querySelector(".imgCont") as HTMLDivElement
 let buttons = document.querySelector(".buttons") as HTMLDivElement
-let app = document.querySelector("#app") as HTMLDivElement
 let zombieCont = document.createElement("div") as HTMLDivElement
+let app = document.querySelector("#app") as HTMLDivElement
 app.append(zombieCont)
+
+
+
 
 
 
@@ -21,13 +24,14 @@ app.append(zombieCont)
 // Render current step
 export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   
-  buttons.innerHTML= ""; // Remove(s) child(s) of buttons (Previous created button(s))
-  imgCont.innerHTML=""; // Remove child(s) of imgCont (Previous created image)
-  imgCont.classList.remove("none") // adds none in game-function
-  input?.classList.remove("none") // adds none in game-function
+  buttons.innerHTML= "";
+  imgCont.innerHTML=""; 
+
+  // removes special cursors from game
+  app.classList.remove("shovel")
+  app.classList.remove("sniper")
 
 
-  // Sound
   const sound = new Audio("./src/assets/sound/" + gameStep.optional?.sound);
 
   if (gameStep.optional?.sound) {
@@ -58,7 +62,6 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   } 
 
 
-  // Value from Input
   let yourName = input?.value
 
   if (gameStep.id == 6) {
@@ -70,7 +73,6 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   input!.value ="" // because of game function
 
 
-  // Input
   if (gameStep.optional?.input) {
     contInputField.classList.remove("none")
   } else {
@@ -78,13 +80,12 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   }
 
 
-  // Image
+  // Render image
   if (gameStep.optional?.image) {
     renderImage(gameStep)
   }
 
-
-  // Buttons
+  // Render button(s)
   eventListener(gameStep, sound);
 
 }
@@ -108,6 +109,11 @@ const nextStep: (id: number, sound?: HTMLAudioElement) => void = (id, sound) => 
 }
 
 
+
+
+
+
+// Render image
 const renderImage: (gameStep: GameStep) => void = (gameStep) => {
   let image = document.createElement("img") as HTMLImageElement
   image.classList.add("image")
@@ -117,108 +123,6 @@ const renderImage: (gameStep: GameStep) => void = (gameStep) => {
 
 
 
-// Alphabet challenge
-const gameTwo: (step: GameStep, sound: HTMLAudioElement) => void = (step, sound) => {
-  
-  // Render the instructions
-  question.innerText = step.question
-
-  // Adapts the alpahbet to inputfield with the right fontsize
-  input!.style.fontSize = "21px"
-
-  // Adds display none on imageContainer
-  imgCont.classList.add("none")
-  imgCont.innerHTML="";
-
-  // Get the "Continue"-button
-  let button = document.getElementById('continue') as HTMLInputElement 
-  
-  // Removes display none from container that holds the input field
-  contInputField.classList.remove("none")
-
-  // Removes previous value from input field
-  input!.value =""
-
-  // Timer. You have 20 seconds to complete the task
-  const myTimeout = setTimeout(timesUp, 20000);
-
-
-  // keypress - event
-  input?.addEventListener("keypress", (event) => {
-
-    if(event.key == "Enter") {
-
-      sound.pause();
-
-      event.preventDefault
-
-      let answer: string | undefined = input?.value
-
-      button.click();
-
-      const alfa: string = "abcdefghijklmnopqrstuvxyzåäö"
-
-      if(answer == alfa) {
-        imgCont.innerHTML="";
-        buttons.innerHTML= "";
-        clearTimeout(myTimeout);
-        contInputField.classList.add("none")
-
-        for (let i = 0; i < gameSteps.length; i++) {
-          const step = gameSteps[i];
-          
-          if(step.id == 17) {
-            imgCont.classList.remove("none")
-            renderImage(step)
-            question.innerHTML = step.question
-            eventListener(step);
-
-          }
-        }
-      } 
-      else {
-        buttons.innerHTML= "";
-        imgCont.innerHTML="";
-        clearTimeout(myTimeout);
-        contInputField.classList.add("none")
-
-        for (let i = 0; i < gameSteps.length; i++) {
-          const step = gameSteps[i];
-          
-          if(step.id == 18) {
-
-            clearTimeout(myTimeout);
-            imgCont.classList.remove("none")
-            renderImage(step)
-            question.innerHTML = step.question
-            eventListener(step);
-
-          }
-
-        }
-      }
-    }
-  })
-}
-
-
-// If you are too slow (gameOne)
-const timesUp: () => void = () => {
-
-  contInputField.classList.add("none")
-
-  for (let i = 0; i < gameSteps.length; i++) {
-    const step = gameSteps[i];
-    
-    if(step.id == 18) {
-
-      question.innerHTML = step.question
-
-      eventListener(step);
-
-    }
-  }
-}   
 
 
 
@@ -229,14 +133,11 @@ const eventListener: (gameStep : GameStep, sound? : HTMLAudioElement) => void = 
     
     const choice = gameStep.choices[i];
 
-    // Creates new button
     let newBtn = document.createElement("div") as HTMLDivElement
     newBtn.classList.add("button")
     newBtn.innerText = choice.text
     buttons.append(newBtn)
 
-
-    // Clickevent
     newBtn.addEventListener("click", () => {
       
       // Inputfield-step condition
@@ -262,32 +163,37 @@ const eventListener: (gameStep : GameStep, sound? : HTMLAudioElement) => void = 
 
 
 
+
+
  // Shooting challenge 
 const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void = (step, zombieId, stop?) => {
 
-  // Render question
-  question.innerHTML = step.question
+  
 
+  question.innerHTML = step.question 
 
-  // Remove child(s) of ZombieCont (Previous created Zombie)
-  zombieCont.innerHTML="";
+  zombieCont.innerHTML=""; 
 
+  let zombie = zombieList.find(zombie => zombie.id == zombieId) 
 
-  // Find current Zombie object
-  let zombie = zombieList.find(zombie => zombie.id == zombieId)
-
-
-  // Sound when clicked
   const shot = new Audio("./src/assets/sound/" + zombie!.sound);
 
-  // Sound of last Zombie in line
+  // Sound of chosen Zombie in line
   if(zombie!.id == 4 || zombie!.id == 11 || zombie!.id == 16) {
     const growl = new Audio("./src/assets/sound/" + zombie!.sound2);
     growl.play()
   }
-  
 
-  // Timer function. Resets and start again. You have 3 seconds 
+  
+  if(zombie!.id < 5) {
+    app.classList.add("shovel")
+  } else {
+    app.classList.add("sniper")
+  }
+
+
+
+  // Timer. Resets and start again 
   clearTimeout(stop);
   stop = undefined
 
@@ -298,7 +204,6 @@ const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void = (ste
     stop = setTimeout(dead2, 2000);
   }
   
-  
 
   // Creates a Zombie
   let zombieImg = document.createElement("img") as HTMLImageElement
@@ -307,7 +212,6 @@ const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void = (ste
   zombieCont.append(zombieImg)
 
 
-  // Eventlistener
   zombieImg.addEventListener("click", () => {
 
     clearTimeout(stop);
@@ -332,13 +236,115 @@ const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void = (ste
 }
 
 
-// If you are too slow (gameOne) you'll be moved to step 29
+
+
+
+
+
+// If you are too slow (gameOne) you'll be moved to step 29 or 32
 const dead: () => void = () => {
   zombieCont.innerHTML="";
   nextStep(29)
 }
 
+
 const dead2: () => void = () => {
   zombieCont.innerHTML="";
   nextStep(32)
 }
+
+
+
+
+
+
+
+
+// Alphabet challenge
+const gameTwo: (step: GameStep, sound: HTMLAudioElement) => void = (step, sound) => {
+  
+  question.innerText = step.question 
+
+  contInputField.classList.remove("none")
+ 
+  input!.style.fontSize = "21px" 
+  input!.value =""  
+
+  imgCont.innerHTML="";  
+
+  let button = document.getElementById('continue') as HTMLInputElement 
+
+  const myTimeout = setTimeout(timesUp, 20000); 
+
+  input?.addEventListener("keypress", (event) => {
+
+    if(event.key == "Enter") {
+
+      sound.pause(); // Ends the heartbeat
+
+      event.preventDefault
+
+      let answer: string | undefined = input?.value
+
+      button.click();
+
+      const alfa: string = "abcdefghijklmnopqrstuvxyzåäö"
+
+      imgCont.innerHTML="";
+      buttons.innerHTML= "";
+      contInputField.classList.add("none")
+      clearTimeout(myTimeout);
+
+      if(answer == alfa) {
+        loopNewStep(step.choices[0].id)
+      } 
+      else {
+        loopNewStep(step.choices[1].id)
+      }
+    }
+  })
+}
+
+
+
+
+
+
+
+// Loops new step (gameTwo)
+const loopNewStep: (nextStepId: number) => void = (nextStepId) => {
+
+  for (let i = 0; i < gameSteps.length; i++) {
+    const newstep = gameSteps[i];
+    
+    if(newstep.id == nextStepId ) {
+      renderImage(newstep)
+      question.innerHTML = newstep.question
+      eventListener(newstep);
+    }
+  }
+}
+
+
+
+
+
+
+
+// If you are too slow (gameTwo)
+const timesUp: () => void = () => {
+
+  contInputField.classList.add("none")
+
+  for (let i = 0; i < gameSteps.length; i++) {
+    const step = gameSteps[i];
+    
+    if(step.id == 18) {
+
+      question.innerHTML = step.question
+
+      eventListener(step);
+
+    }
+  }
+}   
