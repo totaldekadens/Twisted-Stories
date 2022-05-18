@@ -58,16 +58,16 @@ export const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void
         shot.play()
 
         if(zombie?.id == 4 ) {
-        nextStep(30)
+            nextStep(30)
 
         } else if(zombie?.id == 11 ) {
-        nextStep(26)
+            nextStep(26)
         }
         else if(zombie?.id == 18 ) {
-        nextStep(13)
+            nextStep(13)
         }
         else {
-        gameOne(step, zombie!.next, stop)
+            gameOne(step, zombie!.next, stop)
         }
         
     })
@@ -112,26 +112,26 @@ export const gameTwo: (step: GameStep, sound: HTMLAudioElement) => void = (step,
     input?.addEventListener("keypress", (event) => {
 
         if(event.key == "Enter") {
-        event.preventDefault
+            event.preventDefault
 
-        button.click();
+            button.click();
 
-        clearTimeout(myTimeout);
+            clearTimeout(myTimeout);
 
-        sound.pause(); // Ends the heartbeat
-        
-        let answer: string = input?.value
+            sound.pause(); // Ends the heartbeat
+            
+            let answer: string = input?.value
 
-        const alfa: string = "abcdefghijklmnopqrstuvwxyzåäö"
+            const alfa: string = "abcdefghijklmnopqrstuvwxyzåäö"
 
-        if(answer == alfa) {
+            if(answer == alfa) {
 
-            nextStep(step.choices[0].id)
-        } 
-        else {
+                nextStep(step.choices[0].id)
+            } 
+            else {
 
-            nextStep(step.choices[1].id)
-        }
+                nextStep(step.choices[1].id)
+            }
         }
     })
 }
