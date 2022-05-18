@@ -1,10 +1,8 @@
-# Twisted-Stories
+# Apocalypse
 Inlämningsuppgift 1 - Systemutveckling Ramverk
 
 ## Beskrivning
-Du skall bygga ett textbaserat storyspel uppbyggt på TypeScript där spelaren färdas på stigar i din story. För varje punkt i din story skall en text och/eller bild presenteras för spelaren och denne ska få ett, två eller tre val. Valen tar spelaren vidare (eller tillbaka) på en väg i storyn.
-
-
+Det här är ett textbaserat storyspel uppbyggt på TypeScript där spelaren får påverka utgången av spelet genom att göra olika val under spelets gång. I vissa fall kommer spelaren behöva prestera då utmaningar kan dyka upp. För varje punkt i storyn kommer en text och/eller bild/spel presenteras för spelaren och beroende på val eller hur utången blir på utmaningen så tar man sig antignen vidare, får börja om eller får gå tillbaka några steg. 
  
  
 ## Krav
