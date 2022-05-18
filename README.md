@@ -2,7 +2,7 @@
 Inlämningsuppgift 1 - Systemutveckling Ramverk
 
 ## Beskrivning
-Det här är ett textbaserat storyspel uppbyggt på TypeScript där spelaren får påverka utgången av spelet genom att göra olika val under spelets gång. I vissa fall kommer spelaren behöva prestera då utmaningar kan dyka upp. För varje punkt i storyn kommer en text och/eller bild/spel presenteras för spelaren och beroende på val eller hur utången blir på utmaningen så tar man sig antignen vidare, får börja om eller får gå tillbaka några steg. 
+Det här är ett textbaserat storyspel uppbyggt på TypeScript där spelaren får påverka utgången av spelet genom att göra olika val under spelets gång. I vissa fall kommer spelaren behöva prestera då utmaningar kan dyka upp. För varje punkt i storyn kommer en text och/eller bild/utmaning presenteras för spelaren och beroende på val eller hur utången blir på utmaningen så tar man sig antingen vidare, får börja om eller får gå tillbaka några steg. 
  
  
 ## Krav
