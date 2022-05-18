@@ -47,7 +47,7 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 4,
-  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är i där och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  . <br><br> Vad gör du?",
+  question: "Du sitter i källaren så långt in i ett hörn man kan komma. De har förstått att du är där och ljud av flera hammare mot källardörren blir allt tydligare som ett bevis på att nu är det inte långt kvar innan de är igenom.  . <br><br> Vad gör du?",
   optional: {
     image: "door.jpeg",
     sound:"Banging-On-Wooden-Door.mp3",
@@ -65,7 +65,7 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 5,
-  question: "Vi tar en liten snabb paus innan du får köra vidare. Vi har ju glömt att fråga vad du heter. Oförskämt av oss.. <br><br> Vad heter du? ",
+  question: "Vi tar en liten snabb paus innan du får köra vidare. Vi har ju glömt att fråga vad du heter. <br><br> Vad heter du? ",
   optional: {
   input: true,
   image: "question.png",
@@ -111,7 +111,7 @@ export let gameSteps: GameStep[] = [
 } ,
 {
   id: 8,
-  question: "Tråkigt men sant. Ingen mening med att ni båda är zombiemat. <br><br> Du trampar ner på gaspedalen och fortsätter. Barnets skräckslagna ansikte blinkar förbi och trädet blir mindre och mindre i backspegeln.. ",
+  question: "Tråkigt men sant. Ingen mening med att ni båda blir zombiemat. <br><br> Du trampar ner på gaspedalen och fortsätter. Barnets skräckslagna ansikte blinkar förbi och trädet blir mindre och mindre i backspegeln.. ",
   optional: {
     image: "sidemirror.webp",
   },
@@ -215,7 +215,7 @@ export let gameSteps: GameStep[] = [
 },
 {
   id: 16,
-  question: "Du kommer till staden och känner inte igen de vyer du har framför dig. Det är tyst, grått, dimmigt och regnet ligger i luften (nästan så att man kan tro att man är i Bollebygd). Det finns inte ett enda helt fönster på vare sig bilar eller hus. Du närmar dig skolan och ser en hel här av zombies utanför entrén. <br><br> Skit. Vad är din plan? ",
+  question: "Du kommer till staden och känner inte igen de vyer du har framför dig. Det är tyst, grått, dimmigt och regnet ligger i luften (nästan så att man kan tro man är i Bollebygd). Det finns inte ett enda helt fönster på vare sig bilar eller hus. Du närmar dig skolan och ser en hel här av zombies utanför entrén. <br><br> Skit. Vad är din plan? ",
   optional: {
     image: "dark_city.jpg"
   },
@@ -527,6 +527,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie6",
     sound: "shot.mp3",
+    sound2: "Zombie-Breath.mp3",
     next: 7
   }, {
     id: 7,
@@ -558,7 +559,6 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie11",
     sound: "shot.mp3",
-    sound2: "Zombie-Breath.mp3",
     next: 0
   },
   {
