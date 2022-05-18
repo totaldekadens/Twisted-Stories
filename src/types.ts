@@ -5,12 +5,10 @@ export interface GameStep {
     choices: Choice[]
   }
 
-
 interface Choice {
   text: string,
   id: number,
 }
-
 
 interface Optional {
     input?: boolean,
