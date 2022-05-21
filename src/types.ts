@@ -14,6 +14,13 @@ interface Optional {
     input?: boolean,
     image?: string,
     sound?: string,
+    function?: {
+      gameOne?: (gameStep: GameStep, zombieIdStart : number, zombieIdEnd : number, nextstep: number ) => void
+      gameTwo?: (gameStep: GameStep, sound: HTMLAudioElement) => void
+      zombieIdStart?: number
+      zombieIdEnd?: number
+      nextStep?: number
+    }
   }
 
   export interface Zombie {
@@ -22,5 +29,6 @@ interface Optional {
     class: string,
     sound: string,
     sound2?: string,
+    cursor: string
     next: number
   }
