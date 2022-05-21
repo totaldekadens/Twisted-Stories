@@ -1,6 +1,6 @@
 import { GameStep } from "./types";
 import { gameSteps } from "./gameData";
-import { gameOne, gameTwo, input, zombieCont, app } from "./games";
+import { input, zombieCont, app } from "./games";
 
 
 
@@ -27,13 +27,14 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
   app.classList.remove("shovel")
   app.classList.remove("sniper")
 
-
+  // sound
   const sound = new Audio("./src/assets/sound/" + gameStep.optional?.sound);
 
   if (gameStep.optional?.sound) {
     sound.play();
   }
  
+  // input
   let yourName = input?.value
 
   if (gameStep.id == 6) {
@@ -44,37 +45,24 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 
   input!.value ="" // because of game function
 
-
   if (gameStep.optional?.input) {
     contInputField.classList.remove("none")
   } else {
     contInputField.classList.add("none")
   }
 
-
-  // Shooting challenge
-  if (gameStep.id == 27) {
-    gameOne(gameStep, 1);
+  // games/challenges
+  if (gameStep.optional?.function?.gameOne) {
+    gameStep.optional?.function?.gameOne(gameStep, gameStep.optional.function.zombieIdStart!, gameStep.optional.function.zombieIdEnd!, gameStep.optional.function.nextStep!)
     return
-  } 
+  }
 
-  if (gameStep.id == 24) {
-    gameOne(gameStep, 5);
+  if (gameStep.optional?.function?.gameTwo) {
+    gameStep.optional.function.gameTwo!(gameStep, sound)
     return
-  } 
+  }  
 
-  if (gameStep.id == 31) {
-    gameOne(gameStep, 12);
-    return
-  } 
-
-  // Alphabet challenge
-  if (gameStep.id == 7) {
-    gameTwo(gameStep, sound);
-    return
-  } 
-
-
+  // images
   if (gameStep.optional?.image) {
     let image = document.createElement("img") as HTMLImageElement
     image.classList.add("image")
@@ -126,7 +114,7 @@ export const eventListener: (gameStep : GameStep, sound? : HTMLAudioElement) => 
     newBtn.addEventListener("click", () => {
       
       // Inputfield-step condition
-      if((gameStep.id == 5)) {
+      if((gameStep.optional?.input)) {
 
         let yourName = input?.value
 

@@ -1,3 +1,4 @@
+import { gameTwo, gameOne } from "./games";
 import { GameStep, Zombie } from "./types";
 
 
@@ -96,7 +97,10 @@ export let gameSteps: GameStep[] = [
   question: "Du har from NU 20 sekunder på dig att skriva hela alfabetet, avsluta med Enter, annars dör ni båda två..",
   optional: {
     input: true,
-    sound: "Heartbeat-Getting-Faster.mp3"
+    sound: "Heartbeat-Getting-Faster.mp3",
+    function: {
+      gameTwo
+    },
   },
   choices: [
     {
@@ -358,6 +362,14 @@ export let gameSteps: GameStep[] = [
 {
   id: 24,
   question: "You know what to do!",
+  optional: {
+    function: {
+      gameOne,
+      zombieIdStart: 5,
+      zombieIdEnd: 11,
+      nextStep: 26,
+    },
+  },
   choices: [
     {
       text: "", 
@@ -400,6 +412,14 @@ export let gameSteps: GameStep[] = [
 {
   id: 27,
   question: "Klicka på zombiesarna direkt när de dyker upp i rutan, om du missar en är det kört.. ",
+  optional: {
+    function: {
+      gameOne,
+      zombieIdStart: 1,
+      zombieIdEnd: 4,
+      nextStep: 30,
+    },
+  },
   choices: [
     {
       text: "Åhnej", 
@@ -455,6 +475,14 @@ export let gameSteps: GameStep[] = [
 {
   id: 31,
   question: "You know what to do!",
+  optional: {
+    function: {
+      gameOne,
+      zombieIdStart: 12,
+      zombieIdEnd: 18,
+      nextStep: 13,
+    },
+  },
   choices: [
     {
       text: "", 
@@ -491,6 +519,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie1",
     sound: "shovel.wav",
+    cursor: "shovel",
     next: 2
   },
   {
@@ -498,6 +527,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie2",
     sound: "shovel.wav",
+    cursor: "shovel",
     next: 3
   },
   {
@@ -505,6 +535,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_w.png",
     class: "zombie3",
     sound: "shovel.wav",
+    cursor: "shovel",
     next: 4
   },
   {
@@ -513,6 +544,7 @@ export let zombieList: Zombie[] = [
     class: "zombie4",
     sound: "shovel.wav",
     sound2: "Zombie-Breath.mp3",
+    cursor: "shovel",
     next: 0
   },
   {
@@ -520,6 +552,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie5",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 6
   },
   {
@@ -528,30 +561,35 @@ export let zombieList: Zombie[] = [
     class: "zombie6",
     sound: "shot.mp3",
     sound2: "Zombie-Breath.mp3",
+    cursor: "sniper",
     next: 7
   }, {
     id: 7,
     image: "zombie_w.png",
     class: "zombie7",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 8
   }, {
     id: 8,
     image: "zombie_w.png",
     class: "zombie8",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 9
   }, {
     id: 9,
     image: "zombie_shot.png",
     class: "zombie9",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 10
   }, {
     id: 10,
     image: "zombie_shot.png",
     class: "zombie10",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 11
   },
   {
@@ -559,6 +597,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie11",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 0
   },
   {
@@ -566,6 +605,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie12",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 13
   },
   {
@@ -573,18 +613,21 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie13",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 14
   }, {
     id: 14,
     image: "zombie_shot.png",
     class: "zombie14",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 15
   }, {
     id: 15,
     image: "zombie_w.png",
     class: "zombie15",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 16
   }, {
     id: 16,
@@ -592,12 +635,14 @@ export let zombieList: Zombie[] = [
     class: "zombie16",
     sound: "shot.mp3",
     sound2: "Zombie-Breath.mp3",
+    cursor: "sniper",
     next: 17
   }, {
     id: 17,
     image: "zombie_shot.png",
     class: "zombie17",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 18
   },
   {
@@ -605,6 +650,7 @@ export let zombieList: Zombie[] = [
     image: "zombie_shot.png",
     class: "zombie18",
     sound: "shot.mp3",
+    cursor: "sniper",
     next: 0
   },
 ]
