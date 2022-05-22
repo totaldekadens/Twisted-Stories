@@ -14,18 +14,20 @@ app.append(zombieCont)
 
 
 
+
 // Shooting challenge 
 export const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void = (step, zombieId, stop?) => {
-
+  
+  
   zombieCont.innerHTML=""; 
 
   let zombie = zombieList.find(zombie => zombie.id == zombieId) 
 
+  const growl = new Audio("./src/assets/sound/" + zombie!.sound2);
   const shot = new Audio("./src/assets/sound/" + zombie!.sound);
 
   // Sound of chosen Zombie in line
   if(zombie?.sound2) {
-    const growl = new Audio("./src/assets/sound/" + zombie!.sound2);
     growl.play()
   }
 
@@ -52,6 +54,7 @@ export const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void
 
     clearTimeout(stop);
     stop = undefined
+    growl.pause()
     shot.play()
 
     if(zombie?.id == step.optional?.function?.zombieIdEnd ) {

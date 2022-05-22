@@ -247,8 +247,16 @@
   cursor: url(./assets/images/sniperwhite.cur), auto;
 }
 
+.sniper:active {
+  cursor: url(./assets/images/sniperred.cur), auto;
+}
+
 .shovel{
   cursor: url(./assets/images/cursorshovel.cur), auto;
+}
+
+.shovel:active {
+  cursor: url(./assets/images/shovelhit.cur), auto;
 }
 
 

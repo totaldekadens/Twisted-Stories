@@ -464,6 +464,7 @@ export let gameSteps: GameStep[] = [
   question: "WOW vilken insats! Alla zombies är döda! <br><br> Du springer ut till bilen fort som satan och åker därifrån ",
   optional: {
     image: "tumme.png",
+    sound: "yay.mp3",
   },
   choices: [
     {
