@@ -53,7 +53,7 @@ export const renderStep: (gameStep: GameStep) => void = (gameStep) => {
 
   // games/challenges
   if (gameStep.optional?.function?.gameOne) {
-    gameStep.optional?.function?.gameOne(gameStep, gameStep.optional.function.zombieIdStart!, gameStep.optional.function.zombieIdEnd!, gameStep.optional.function.nextStep!)
+    gameStep.optional?.function?.gameOne(gameStep, gameStep.optional.function.zombieIdStart!)
     return
   }
 
