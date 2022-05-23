@@ -15,7 +15,7 @@ interface Optional {
     image?: string,
     sound?: string,
     function?: {
-      gameOne?: (gameStep: GameStep, zombieIdStart : number, zombieIdEnd : number, nextstep: number ) => void
+      gameOne?: (gameStep: GameStep, zombieIdStart : number, stop?: number ) => void
       gameTwo?: (gameStep: GameStep, sound: HTMLAudioElement) => void
       zombieIdStart?: number
       zombieIdEnd?: number
