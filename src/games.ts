@@ -8,7 +8,7 @@ import { nextStep, imgCont} from "./renderFunctions";
 export let input = document.getElementById('input') as HTMLInputElement;
 export let zombieCont = document.createElement("div") as HTMLDivElement
 export let app = document.querySelector("#app") as HTMLDivElement
-app.append(zombieCont)
+
 
 
 
@@ -20,7 +20,8 @@ export const gameOne: (step: GameStep, zombieId: number, stop?: number ) => void
   
   
   zombieCont.innerHTML=""; 
-
+  app.append(zombieCont)
+  
   let zombie = zombieList.find(zombie => zombie.id == zombieId) 
 
   const growl = new Audio("./src/assets/sound/" + zombie!.sound2);
