@@ -59,7 +59,7 @@ export let gameSteps: GameStep[] = [
       id: 27
     },
     {
-      text: "Du försöker fly genom källardörren", 
+      text: "Du försöker fly genom ytterkällardörren", 
       id: 28
     },
   ],
