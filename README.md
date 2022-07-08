@@ -12,7 +12,7 @@ Det här är ett textbaserat storyspel uppbyggt på TypeScript där spelaren få
 1.  Git & GitHub har använts  ❎
 2.  Projektmappen innehåller en README.md fil - (läs ovan för mer info) ❎
 3.  Uppgiften lämnas in i tid! ❎
-4.  Muntlig presentation är genomförd ❎❌
+4.  Muntlig presentation är genomförd ❎
 5.  Applikationens struktur skall vara genomtänk samt uppdelad i olika moduler. ❎
 6.  Applikationen skall vara skriven i Typescript samt genererad via VITE. Ts-config som generaras via VITE skall inte ändras för att ta bort typescript-regler. ❎
 7.  Inga ”any”-typningar får finnas. ❎
@@ -45,3 +45,25 @@ Det här är ett textbaserat storyspel uppbyggt på TypeScript där spelaren få
  
 
 Repo: https://github.com/totaldekadens/Twisted-Stories
+
+## Sneak peak
+
+Desktop:
+
+![1  TS_ex1_desktop](https://user-images.githubusercontent.com/90898648/178013744-26a1b52f-9733-42e5-84c0-3f31ce91f773.JPG)
+
+
+![2  TS_ex2_desktop](https://user-images.githubusercontent.com/90898648/178013876-913eaaf5-f1e1-433e-88a5-4b2ed613f422.JPG)
+
+
+Mobile: 
+
+![3  TS_ex1_1_mobile](https://user-images.githubusercontent.com/90898648/178013919-09a376fb-a72c-441e-915f-43b1889924b5.JPG)
+![4  TS_ex1_2_mobile](https://user-images.githubusercontent.com/90898648/178013923-bb3f13d1-d45c-4b3c-a9f5-84441c505f66.JPG)
+
+
+![5  TS_ex2_mobile](https://user-images.githubusercontent.com/90898648/178013933-2880a00e-7598-4383-9fae-aa3033c44e1d.JPG)
+
+
+
+
