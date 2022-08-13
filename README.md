@@ -50,18 +50,15 @@ Repo: https://github.com/totaldekadens/Twisted-Stories
 
 Desktop:
 
-![1  TS_ex1_desktop](https://user-images.githubusercontent.com/90898648/178013744-26a1b52f-9733-42e5-84c0-3f31ce91f773.JPG)
+![1  TS_ex1_desktop_ny](https://user-images.githubusercontent.com/90898648/184485957-59de4d7b-8d36-4bb0-82fa-e2623408a303.JPG)
 
+![2  TS_ex2_desktop](https://user-images.githubusercontent.com/90898648/184486595-a12781bf-3cfb-464a-bafd-4dd1c3963f70.JPG)
 
-![2  TS_ex2_desktop](https://user-images.githubusercontent.com/90898648/178013876-913eaaf5-f1e1-433e-88a5-4b2ed613f422.JPG)
 
 
 Mobile: 
 
-![3  TS_ex1_1_mobile](https://user-images.githubusercontent.com/90898648/178013919-09a376fb-a72c-441e-915f-43b1889924b5.JPG)
-![4  TS_ex1_2_mobile](https://user-images.githubusercontent.com/90898648/178013923-bb3f13d1-d45c-4b3c-a9f5-84441c505f66.JPG)
-
-
+![3  TS_ex1_1_mobile_ny](https://user-images.githubusercontent.com/90898648/184485417-4af0e982-40ae-437a-acf2-6a5aa7d6cedd.JPG)
 ![5  TS_ex2_mobile](https://user-images.githubusercontent.com/90898648/178013933-2880a00e-7598-4383-9fae-aa3033c44e1d.JPG)
 
 
